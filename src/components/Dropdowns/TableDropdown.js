@@ -1,7 +1,8 @@
 import React from "react";
 import { createPopper } from "@popperjs/core";
+import axios from "axios";
 
-const NotificationDropdown = () => {
+const NotificationDropdown = (props) => {
   // dropdown props
   const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
   const btnDropdownRef = React.createRef();
@@ -14,6 +15,19 @@ const NotificationDropdown = () => {
   };
   const closeDropdownPopover = () => {
     setDropdownPopoverShow(false);
+  };
+  
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post(`http://localhost:5000/deletePort/${props.id}`, {
+        
+    });
+    window.location.reload(); 
+      
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <>
@@ -42,26 +56,18 @@ const NotificationDropdown = () => {
           }
           onClick={(e) => e.preventDefault()}
         >
-          Action
+          Update
         </a>
         <a
           href="#pablo"
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }
-          onClick={(e) => e.preventDefault()}
+          onClick={handleDelete }
         >
-          Another action
+          Delete
         </a>
-        <a
-          href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-          }
-          onClick={(e) => e.preventDefault()}
-        >
-          Something else here
-        </a>
+      
       </div>
     </>
   );

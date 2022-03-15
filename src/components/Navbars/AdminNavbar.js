@@ -1,6 +1,13 @@
 import React from "react";
-
 import UserDropdown from "components/Dropdowns/UserDropdown.js";
+
+
+const logout=(e)=>{
+  e.preventDefault();
+  localStorage.removeItem("token");
+  window.location.href ="/auth/login"
+
+}
 
 export default function Navbar() {
   return (
@@ -32,6 +39,15 @@ export default function Navbar() {
           {/* User */}
           <ul className="flex-col md:flex-row list-none items-center hidden md:flex">
             <UserDropdown />
+          </ul>
+           <ul className="flex-col md:flex-row list-none items-center hidden md:flex">
+           <button
+                      
+                    onClick={logout}
+                      className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                    >
+                     logout
+                    </button>
           </ul>
         </div>
       </nav>
