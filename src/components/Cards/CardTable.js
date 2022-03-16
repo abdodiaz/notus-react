@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 // components
 
 import TableDropdown from "components/Dropdowns/TableDropdown.js";
-import { prototype } from "chart.js";
 
 export default function CardTable(props) {
 

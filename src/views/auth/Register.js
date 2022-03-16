@@ -27,7 +27,7 @@ export const  Register=()=> {
           })
 
           setLoading(false)
-          history.push("/admin");
+          history("/admin");
 
       } catch (err) {
           setLoading(false)

@@ -14,7 +14,7 @@ import useFetch from "Hooks/UseFetch";
 
 
 export const Port=()=> {
-  const history= useHistory();
+
   const [name, setName] = useState('')
   const [portdata, setPortdata] = useState('')
   const [descreption, setDescription] = useState(0)
